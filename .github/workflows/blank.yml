@@ -1,0 +1,29 @@
+name: Create Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  create_release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Read current version
+        id: read_version
+        run: echo "::set-output name=version::$(cat version.txt)"
+        
+      - name: Create GitHub release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        with:
+          tag_name: ${{ steps.read_version.outputs.version }}
+          release_name: Release ${{ steps.read_version.outputs.version }}
+          body: |
+            Add release notes here.
