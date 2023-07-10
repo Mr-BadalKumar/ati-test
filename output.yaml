@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Workflow
 metadata:
-  name: dag-test
+  name: dag-test-01
   namespace: argo
 spec:
   entrypoint: start
