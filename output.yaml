@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Workflow
 metadata:
-  name: dag-test-2023-07-12.12-47-38
+  name: dag-test-2023-07-12.13-06-24
   namespace: argo
 spec:
   entrypoint: start
